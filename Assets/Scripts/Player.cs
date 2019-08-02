@@ -92,11 +92,6 @@ public class Player : MonoBehaviour
     
     }
 
-    public void takeDamage()
-    {
-        
-    }
-
     public void makePlayerUnTouchAbleForWhile()
     {
         unTouchAbleTimer = 1f;
@@ -120,19 +115,12 @@ public class Player : MonoBehaviour
 
     public void die()
     {
-        //var goArray = FindObjectsOfType(typeof(PlayerBody));
-        
         if (!GameManager.instance.isLoadingNextLevel && unTouchAbleTimer <= 0f)
         {
             GameManager.instance.GameOver();
         }
-
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        
-    }
 
     public void beforeLevelingUp()
     {

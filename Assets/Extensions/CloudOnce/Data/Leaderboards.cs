@@ -14,34 +14,19 @@ namespace CloudOnce
     /// </summary>
     public static class Leaderboards
     {
-        private static readonly UnifiedLeaderboard s_highScore = new UnifiedLeaderboard("HighScore",
+        private static readonly UnifiedLeaderboard s_scoreBoard = new UnifiedLeaderboard("ScoreBoard",
 #if !UNITY_EDITOR && (UNITY_IOS || UNITY_TVOS)
             ""
 #elif !UNITY_EDITOR && UNITY_ANDROID && CLOUDONCE_GOOGLE
             "CgkItNyolLYREAIQAA"
 #else
-            "HighScore"
+            "ScoreBoard"
 #endif
             );
 
-        public static UnifiedLeaderboard HighScore
+        public static UnifiedLeaderboard ScoreBoard
         {
-            get { return s_highScore; }
-        }
-
-        private static readonly UnifiedLeaderboard s_topPlayers = new UnifiedLeaderboard("TopPlayers",
-#if !UNITY_EDITOR && (UNITY_IOS || UNITY_TVOS)
-            ""
-#elif !UNITY_EDITOR && UNITY_ANDROID && CLOUDONCE_GOOGLE
-            "CgkItNyolLYREAIQHw"
-#else
-            "TopPlayers"
-#endif
-            );
-
-        public static UnifiedLeaderboard TopPlayers
-        {
-            get { return s_topPlayers; }
+            get { return s_scoreBoard; }
         }
 
         public static string GetPlatformID(string internalId)
@@ -53,8 +38,7 @@ namespace CloudOnce
 
         private static readonly Dictionary<string, UnifiedLeaderboard> s_leaderboardDictionary = new Dictionary<string, UnifiedLeaderboard>
         {
-            { "HighScore", s_highScore },
-            { "TopPlayers", s_topPlayers },
+            { "ScoreBoard", s_scoreBoard },
         };
     }
 }

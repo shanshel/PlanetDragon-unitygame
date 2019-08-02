@@ -4,8 +4,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
 using DG.Tweening;
-using CloudOnce;
-using GameAnalyticsSDK;
+//using CloudOnce;
+//using GameAnalyticsSDK;
 
 public class GameManager : MonoBehaviour
 {
@@ -54,7 +54,7 @@ public class GameManager : MonoBehaviour
         gameTimeScale = 1f;
         if (!isGAInit)
         {
-            GameAnalytics.Initialize();
+            //GameAnalytics.Initialize();
             isGAInit = true;
         }
     }
@@ -204,7 +204,7 @@ public class GameManager : MonoBehaviour
     public IEnumerator nextLevelCo()
     {
         
-        GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, Application.version, "game", score);
+        //GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, Application.version, "game", score);
         
         if ((currentLevel+1) >= Planet.planetinstance.planetModel.Length )
         {
@@ -231,7 +231,7 @@ public class GameManager : MonoBehaviour
         isLoadingNextLevel = false;
 
         //UN achievementCheck();
-        GameAnalytics.NewProgressionEvent(GAProgressionStatus.Start, Application.version, "game");
+        //GameAnalytics.NewProgressionEvent(GAProgressionStatus.Start, Application.version, "game");
 
         ScoreManager.instance.unlockSinglePlayAchievements(score, currentLevel);
     }
